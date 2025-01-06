@@ -88,11 +88,17 @@ public class ParamsContrller {
      * @return
      */
     @RequestMapping("/params03")
-    public String params02(User user){
+    public String params03(User user){
         System.out.println(user);
         return "/index.jsp";
     }
 
+
+    @RequestMapping("/params04")
+    public String params04(@RequestParam(value = "age", defaultValue = "12") Integer age){
+        System.out.println(age);
+        return "/index.jsp";
+    }
 
     /**
      * 获取请求头的信息@RequestHeader
@@ -121,8 +127,9 @@ public class ParamsContrller {
      * @return
      */
     @RequestMapping("/cookie")
-    public String cookie(@CookieValue("JSESSIONID") String jsessionId){
+    public String cookie(@CookieValue("JSESSIONID") String jsessionId, @CookieValue("Idea-cd17eb4a") String ideaId ){
         System.out.println(jsessionId);
+        System.out.println(ideaId);
         return "/index.jsp";
     }
 
