@@ -3,6 +3,9 @@ package cn.tulingxueyuan.controllers;
 import cn.tulingxueyuan.entity.Role;
 import cn.tulingxueyuan.entity.User;
 import cn.tulingxueyuan.entity.UserDTO;
+import java.util.Map;
+import java.util.Map.Entry;
+import javax.servlet.http.Cookie;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -134,6 +137,17 @@ public class ParamsContrller {
     }
 
 
+    @RequestMapping("/cookie2")
+    public String cookie2(HttpServletRequest request) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                System.out.println(cookie.getName() + "=" + cookie.getValue());
+            }
+        }
+        return "/index.jsp";
+    }
+
     /**
      * 获取servlet api
      *  springmvc+servlet api一起用
@@ -142,11 +156,11 @@ public class ParamsContrller {
      * @return
      */
     @RequestMapping("/servlet")
-    public String servlet(String username ,HttpServletRequest request, HttpServletResponse response){
+    public String servlet(String username, HttpServletRequest request, HttpServletResponse response){
         System.out.println(username);
         String name = request.getParameter("name");
         System.out.println(name);
-        request.setAttribute("name",name);
+        request.setAttribute("Title",name);
         return "/index.jsp";
     }
 

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>${Title}</title>
   </head>
   <body>
   <img src="${pageContext.request.contextPath}/images/f3d3572c11dfa9ec1970f65763d0f703918fc110.jpg">
